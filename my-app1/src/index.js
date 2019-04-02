@@ -18,10 +18,10 @@ function RightBar(props){
 function Border(props){
 	return (
 		<div className={props.color}>
-			<div class='left'>
+			<div className='left'>
 				{props.left}
 			</div>
-			<div class='right'>
+			<div className='right'>
 				{props.right}
 			</div>
 		</div>
