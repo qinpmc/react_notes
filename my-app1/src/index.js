@@ -1,46 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
- 
-function LeftBar(props){
-	return (
-		<div>Left side</div>
-	)
-	
-}
+import './index.css';
+//import App from './App';
+import Xiaojiejie from './Xiaojiejie';
+import * as serviceWorker from './serviceWorker';
 
-function RightBar(props){
-	return (
-		<div>Right side</div>
-	)
-	
-}
- 
-function Border(props){
-	return (
-		<div className={props.color}>
-			<div className='left'>
-				{props.left}
-			</div>
-			<div className='right'>
-				{props.right}
-			</div>
-		</div>
-	)
-}
+ReactDOM.render(<Xiaojiejie />, document.getElementById('root'));
 
- 
-function WelcomeDialog(){
-	return (
-		<Border color = 'blue' 
-		left={<LeftBar />} 
-		right={<RightBar />}
-		/>
- 
-	)
-	
-}
-
-ReactDOM.render(
-    <WelcomeDialog />,
-    document.getElementById('root')
-)
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
