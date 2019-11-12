@@ -1,13 +1,18 @@
 import React,{Component,Fragment } from 'react'
- 
+import axios from 'axios'
 import XiaojiejieItem from './XiaojiejieItem'
+import "./myStyle.css"
+import Boss from "./Boss"
+
+
 
 class Xiaojiejie extends Component{
     constructor(props){
         super(props);
         this.state = {
             inputValue:"",
-            list:["钓鱼","放风筝"]
+            //list:["钓鱼","放风筝"]
+            list:[]
         };
         this.inputAlias = React.createRef(); // 第二种 ref
     }
@@ -46,9 +51,28 @@ class Xiaojiejie extends Component{
                         })
                     }
                 </ul>
+                <div>
+                    <Boss />
+                </div>
             </Fragment>
         )
+    
+    
     }
+
+
+    componentDidMount(){
+        axios.get('https://www.easy-mock.com/mock/5dcabcc3d678512807e1b8dd/jspangdemo/workcontent')
+            .then((res)=>{
+                console.log('axios 获取数据成功:'+JSON.stringify(res));
+                this.setState({
+                    list:res.data.data
+                })
+            
+            })
+            .catch((error)=>{console.log('axios 获取数据失败'+error)})
+    }
+
 
     inputChange(e){
         this.setState({
