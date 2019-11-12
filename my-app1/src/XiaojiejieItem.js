@@ -17,6 +17,7 @@ class XiaojiejieItem extends Component{
       }
 
     render(){
+        console.log('child-render');
         return (
             <div onClick={this.handleClick}> {this.props.avname}为你-{this.props.content}</div>
         )
@@ -27,6 +28,19 @@ class XiaojiejieItem extends Component{
         //this.props.list=[] //错误，不能直接修改
         //关键代码-----------end
         this.props.deleteItem(this.props.index);
+    }
+
+    componentWillReceiveProps(nextProps,nextContext){
+        // console.log(`this.props-->${JSON.stringify(this.props)}`);
+        // console.log(`nextProps-->${JSON.stringify(nextProps)}`);
+        // console.log(`nextContext-->${JSON.stringify(nextContext)}`);
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextProps.content !==this.props.content){
+            return true;
+        }
+        return false;
     }
 }
 

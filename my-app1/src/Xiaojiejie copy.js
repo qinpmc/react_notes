@@ -33,7 +33,7 @@ class Xiaojiejie extends Component{
                     />
                     <button onClick={this.addList.bind(this)}>增加</button>
                 </div>
-                <ul ref={(ul)=>{this.ul=ul}}>
+                <ul>
                     {
                         this.state.list.map((item,index) =>{
                             return (
@@ -62,13 +62,8 @@ class Xiaojiejie extends Component{
         this.setState({
             list:[...this.state.list,this.state.inputValue],
             inputValue:""
-        },function(){
-            console.log(this.ul.querySelectorAll("div").length);
         })
-
-        // console.log(this.ul.querySelectorAll("div").length); //错误的写法，setState异步更新
     }
-    
 
     deleteItem(index){
         let list = this.state.list;
